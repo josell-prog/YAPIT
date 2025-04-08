@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - PCzone</title>
+    <style>
+        body {font-family: Arial, sans-serif; text-align: center; }
+        h1 {
+            color: white ;
+        }
+        .container { margin-top: 300px; }
+        #message { color: red; display: none; }
+        #countdown { font-weight: bold; }
+        #pczoneWebsite { display: none; } /* Hide website initially */
+    </style>
+</head>
+<body>
+
+<!-- Login Form -->
+<div class="container" id="loginContainer">
+    <h1>Login to PCzone</h1>
+    <form id="loginForm">
+        <input type="text" id="username" placeholder="Username" required><br><br>
+        <input type="password" id="password" placeholder="Password" required><br><br>
+        <button type="submit" id="loginBtn">Login</button>
+    </form>
+    <p id="message"></p>
+</div>
+
+<!-- PCzone Website Code (Hidden Initially) -->
+<div id="pczoneWebsite">
+    <style>
+        /* Welcome Section */
+.welcome-section {
+    background: linear-gradient(135deg, #007bff, #6610f2);
+    color: white;
+    padding: 60px 20px;
+    margin-top: 80px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.welcome-section h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.welcome-section p {
+    font-size: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #000000, #00008B, #4B0082, #8A2BE2);
+            text-align: center;
+        }
+
+        header {
+            background-color: #800080;
+            color: white;
+            padding: 1rem 1rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        /* Sections */
+        section {
+            background: #800080;
+            margin: 20px;
+            padding: 10px;
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+
+      
+/* Product Buttons */
+.product-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.product-btn {
+    background: white;
+    border: 2px solid #333;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50px;
+    transition: 0.3s;
+}
+
+.product-btn img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.product-btn:hover {
+    transform: scale(1.05);
+    border-color: #007bff;
+}
+
+/* Modals */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    margin: 10% auto;
+    text-align: center;
+    position: relative;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Gallery Styling */
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.gallery img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: 0.3s;
+    border: 2px solid #ddd;
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
+    border-color: #007bff;
+}
+/* Product Item Container */
+.product-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 10px;
+}
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .product-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-btn {
+        width: 80%;
+    }
+}
+     /* Account Section */
+.account-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.account-box {
+    background: #eee;
+    padding: 15px;
+    border-radius: 8px;
+    width: 200px;
+    text-align: center;
+}
+You sent
+/* Styled Log In Button */
+.btn {
+    display: block;
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+
+
+
+/* Log-In Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 400px;
+    margin: 15% auto;
+    text-align: center;
+    position: relative;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Form Styling */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.login-btn {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: #218838;
+}
+
+.signup-link {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.signup-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+        /* Modals */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 400px;
+            margin: 15% auto;
+            text-align: left;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Back to Home Button */
+        .back-home-btn {
+            background: #ff6600;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .back-home-btn:hover {
+            background: #cc5500;
+        }
+        /* Services Section */
+.services-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* Stylish Service Buttons */
+.service-btn {
+    background: linear-gradient(135deg, #007bff, #6610f2);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.service-btn:hover {
+    background: linear-gradient(135deg, #6610f2, #007bff);
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .services-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-btn {
+        width: 80%;
+    }
+}
+    </style>
+</head>
+<body>
+<!-- Welcome Section (Front Page) -->
+<section class="welcome-section">
+    <h2>Welcome to PCzone!</h2>
+    <p>Your one-stop shop for the best PC components, upgrades, and expert consultations.  
+       Explore our products and services to enhance your computing experience.</p>
+</section>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#account">Account</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+   <!-- Products Section -->
+<section id="products">
+    <h2>Products</h2>
+    <div class="product-container">
+        <button class="product-btn" onclick="openModal('accessoriesModal')">
+            
+            <span>Accessories</span>
+        </button>
+
+        <button class="product-btn" onclick="openModal('laptopsModal')">
+            
+            <span>Laptops</span>
+        </button>
+
+        <button class="product-btn" onclick="openModal('componentsModal')">
+            
+            <span>PC Components</span>
+        </button>
+    </div>
+</section>
+<!-- Accessories Modal -->
+<div id="accessoriesModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('accessoriesModal')">&times;</span>
+        <h2>Accessories</h2>
+        <div class="gallery">
+            <img src="keyboard.jpg" alt="Gaming Keyboard">
+           <img src="mouse.jpg" alt="Gaming Mouse">
+            
+            <img src="headset.jpg" alt="Gaming Headset">
+          
+            <img src="monitor.jpg" alt="Monitor">
+            
+        </div>
+    </div>
+</div>
+
+<!-- Laptops Modal -->
+<div id="laptopsModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('laptopsModal')">&times;</span>
+        <h2>Laptops</h2>
+        <div class="gallery">
+            <img src="laptop.jpeg" alt="Gaming Laptop">
+            <img src="business.jpg" alt="Business Laptop">
+            <img src="ultrabook.jpg" alt="Ultrabook">
+            <img src="macbook.jpg" alt="MacBook">
+        </div>
+    </div>
+</div>
+
+<!-- Components Modal -->
+<div id="componentsModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('componentsModal')">&times;</span>
+        <h2>PC Components</h2>
+        <div class="gallery">
+            <img src="gpu.jpg" alt="Graphics Card">
+            <img src="cpu.jpg" alt="Processor">
+            <img src="motherboard.jpg" alt="Motherboard">
+            <img src="ram.jpg" alt="RAM">
+        </div>
+    </div>
+</div>
+
+
+  <!-- Account Section -->
+<section id="account">
+    <h2>Account</h2>
+    <div class="account-container">
+        <div class="account-box">
+            <h3>Users (Customers)</h3>
+            <!-- Log In Button -->
+            <button class="btn" onclick="openModal('loginModal')">Log In / Sign Up</button>
+        </div>
+        <div class="account-box">
+            <h3>Admin</h3>
+            <a href="#" class="btn">Admin Dashboard</a>
+            <a href="#" class="btn">Manage Products</a>
+        </div>
+    </div>
+</section>
+
+<!-- Log-In Modal -->
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('loginModal')">&times;</span>
+        <h2>Log In</h2>
+        <form>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit" class="login-btn">Log In</button>
+        </form>
+        <p>Don't have an account? <a href="#">Sign Up</a></p>
+    </div>
+</div>
+<!-- Services Section -->
+<section id="services">
+    <h2>Our Services</h2>
+    <div class="services-container">
+        <button class="service-btn" onclick="openModal('upgradesModal')">🔧 Upgrades</button>
+        <button class="service-btn" onclick="openModal('consultationModal')">💬 Consultation</button>
+        <button class="service-btn" onclick="openModal('customBuildsModal')">🖥️ Custom Builds</button>
+    </div>
+</section>
+    <!-- Upgrades Modal -->
+    <div id="upgradesModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('upgradesModal')">&times;</span>
+            <h2>Upgrades</h2>
+            <ul>
+                <li>RAM & Storage Upgrades</li>
+                <li>Graphics Card Installation</li>
+                <li>Cooling System Enhancements</li>
+                <li>Software Optimization</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Consultation Modal -->
+    <div id="consultationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('consultationModal')">&times;</span>
+            <h2>Consultation</h2>
+            <ul>
+                <li>PC Buying Guide</li>
+                <li>Performance Optimization</li>
+                <li>Troubleshooting & Fixes</li>
+                <li>Networking & Security Solutions</li>
+            </ul>
+        </div>
+    </div>
+<!-- Custom Builds Modal -->
+    <div id="customBuildsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('customBuildsModal')">&times;</span>
+            <h2>Custom Builds</h2>
+            <ul>
+                <li>Gaming PC Builds</li>
+                <li>Workstation & Editing PCs</li>
+                <li>Budget-Friendly PC Builds</li>
+                <li>RGB & Aesthetic Builds</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Smooth Scroll to Top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        // Open Modal
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
+
+        // Close Modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
+        // Close Modal When Clicking Outside
+        window.onclick = function(event) {
+            let modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+        };
+    </script>
+
+    <!-- About Us Section -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>PCzone provides high-quality computer products and services.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: support@pczone.com</p>
+        <p>Phone: 09069379315</p>
+    </section>
+   
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            let modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+        };
+    </script>
+  </div>
+
+<script>
+    let attemptCount = 0;
+    let isLocked = false;
+
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        
+        if (isLocked) return;
+
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+
+        // Dummy credentials
+        const validUsername = "admin123";
+        const validPassword = "admin123";
+
+        if (username === validUsername && password === validPassword) {
+            showWebsite(); // Replace login form with PCzone website
+        } else {
+            attemptCount++;
+            if (attemptCount >= 2) {
+                lockLogin();
+                attemptCount = 0; // Reset attempts after lock
+            } else {
+                showMessage("Invalid login. You have 1 attempt left.");
+            }
+        }
+    });
+
+    function lockLogin() {
+        isLocked = true;
+        let message = document.getElementById("message");
+        let loginBtn = document.getElementById("loginBtn");
+
+        message.innerHTML = "Too many failed attempts. Please try again in <span id='countdown'>10</span> seconds.";
+        message.style.display = "block";
+        loginBtn.disabled = true;
+
+        let counter = 10;
+        let countdownInterval = setInterval(() => {
+            counter--;
+            document.getElementById("countdown").textContent = counter;
+            if (counter === 0) {
+                clearInterval(countdownInterval);
+                message.style.display = "none";
+                loginBtn.disabled = false;
+                isLocked = false;
+            }
+        }, 1000);
+    }
+
+    function showMessage(text) {
+        let message = document.getElementById("message");
+        message.textContent = text;
+        message.style.display = "block";
+    }
+
+    function showWebsite() {
+        document.getElementById("loginContainer").style.display = "none"; 
+        document.getElementById("pczoneWebsite").style.display = "block";
+    }
+</script>
+
+</body>
+</html>
